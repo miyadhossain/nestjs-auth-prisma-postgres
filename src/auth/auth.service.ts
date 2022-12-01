@@ -3,12 +3,12 @@ import {
   ForbiddenException,
   Injectable,
 } from '@nestjs/common';
-import { PrismaService } from 'prisma/prisma.service';
-import { AuthDto } from './dto/auth.dto';
-import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { jwtSecret } from 'src/utils/constants';
+import * as bcrypt from 'bcrypt';
 import { Request, Response } from 'express';
+import { PrismaService } from 'prisma/prisma.service';
+import { jwtSecret } from 'src/utils/constants';
+import { AuthDto } from './dto/auth.dto';
 
 @Injectable()
 export class AuthService {
@@ -70,13 +70,13 @@ export class AuthService {
 
     res.cookie('token', token, {});
 
-    return res.send({ message: 'Logged in succefully' });
+    return res.send({ message: 'Logged in successfully' });
   }
 
   async signout(req: Request, res: Response) {
     res.clearCookie('token');
 
-    return res.send({ message: 'Logged out succefully' });
+    return res.send({ message: 'Logged out successfully' });
   }
 
   async hashPassword(password: string) {

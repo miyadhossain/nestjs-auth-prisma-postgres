@@ -1,5 +1,3 @@
-
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,9 +8,17 @@ datasource db {
 }
 
 model User {
-  id    String  @unique @default(uuid()) 
-  email String  @unique
-  hashedPassword String 
-  createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt()
+  id             String   @unique @default(uuid())
+  email          String   @unique
+  hashedPassword String
+  createdAt      DateTime @default(now())
+  updateAt       DateTime @updatedAt
+}
+
+model Todo {
+  id          String   @unique @default(uuid())
+  title       String
+  isDone      Boolean
+  createdAt   DateTime @default(now())
+  updateAt    DateTime @updatedAt
 }
